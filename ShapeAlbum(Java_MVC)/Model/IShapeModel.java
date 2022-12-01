@@ -10,24 +10,11 @@ import java.util.NoSuchElementException;
 public interface IShapeModel {
 
   /**
-   * Creates a shape object. The customer may want to get copies of the same shape photos,
-   * therefore, the same shape with different names sharing the same other features can be created
-   * and added to the album multiple times. The photo album size is 1000 * 1000. The origin (0,0) is
-   * the upper left corner of the canvas.
-   *
-   * @param name    the unique name of the shape photo (cannot be null or empty or existed)
-   * @param shape   the String representation of the shape type (cannot be null or empty)
-   * @param x       the x-axis value of the shape location (0 <= x <= 1000)
-   * @param y       the y-axis value of the shape location (0 <= y <= 1000)
-   * @param sizeOne the first positive value of the shape photo (weight, x radius, etc.)
-   * @param sizeTwo the second positive value of the shape photo (height, y radius, etc.)
-   * @param r       the red
-   * @param g       the green
-   * @param b       the blue
-   * @throws IllegalArgumentException if the input is invalid
+   * Add a shape to list.
+   * @param shapeToAdd
+   * @return
    */
-  IShape createShape(String name, String type, int x, int y, int sizeOne, int sizeTwo,
-      int r, int g, int b) throws IllegalArgumentException;
+  void addShape(IShape shapeToAdd);
 
   /**
    * Moves the given shape photo to a new location.

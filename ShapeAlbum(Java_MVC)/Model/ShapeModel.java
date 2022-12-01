@@ -22,44 +22,15 @@ public class ShapeModel implements IShapeModel {
     this.snapshotList = new ArrayList<>();
   }
 
-  /**
-   * Create a new Shape.
-   * @param name    the unique name of the shape photo (cannot be null or empty or existed)
-   * @param type    type of the shape.
-   * @param x       the x-axis value of the shape location (0 <= x <= 1000)
-   * @param y       the y-axis value of the shape location (0 <= y <= 1000)
-   * @param sizeOne the first positive value of the shape photo (weight, x radius, etc.)
-   * @param sizeTwo the second positive value of the shape photo (height, y radius, etc.)
-   * @param r       the red
-   * @param g       the green
-   * @param b       the blue
-   * @return IShape
-   * @throws IllegalArgumentException " "
-   */
   @Override
-  public IShape createShape(String name, String type, int x, int y, int sizeOne, int sizeTwo,
-      int r, int g, int b) throws IllegalArgumentException {
-    // Check if the variables are valid input
-    if (name == null || name.equals("")
-        || sizeOne <= MIN_SIZE || sizeTwo <= MIN_SIZE
-        || outOfBound(r, g, b)) {
-      throw new IllegalArgumentException("Invalid input.");
+  public void addShape(IShape shapeToAdd) throws IllegalArgumentException {
+    for (IShape shape: this.listOfShapes) {
+      if (shape.getName().equalsIgnoreCase(shapeToAdd.getName())) {
+        throw new IllegalArgumentException("Shapes must have unique names.");
+      }
     }
-    // CheckRepeatName
-    if (isRepeat(name)) {
-      throw new IllegalArgumentException();
-    }
-    IShape shapePhoto = null;
-    switch (type.toLowerCase()) {
-      case "oval":
-        shapePhoto = new Oval(name, type, x, y, sizeOne, sizeTwo, r, g, b);
-        break;
-      case "rectangle":
-        shapePhoto = new Rectangle(name, type, x, y, sizeOne, sizeTwo, r, g, b);
-        break;
-    }
-    listOfShapes.add(shapePhoto);
-    return shapePhoto;
+    // If we get here, we know the shapeToAdd has a unique name
+    this.listOfShapes.add(shapeToAdd);
   }
 
   /**
