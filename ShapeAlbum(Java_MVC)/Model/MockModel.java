@@ -22,14 +22,10 @@ public class MockModel implements IShapeModel {
   }
 
   @Override
-  public IShape createShape(String name, String type, int x, int y, int sizeOne,
-      int sizeTwo, int r, int g, int b) throws IllegalArgumentException {
-    IShape shapeToCreate = type.equalsIgnoreCase("rectangle")
-        ? new Rectangle(name, "rectangle", x, y, sizeOne, sizeTwo, r, g, b)
-        : new Oval(name, "oval", x, y, sizeOne, sizeTwo, r, g, b);
-    log.append("Input: ").append(shapeToCreate.toString()).append("\n");
+  public void addShape(IShape shapeToAdd) throws IllegalArgumentException {
+    log.append("Input: ").append(shapeToAdd.toString()).append("\n");
     log.append("Unique Code: ").append(this.uniqueCode).append("\n");
-    return shapeToCreate;
+
   }
 
   @Override

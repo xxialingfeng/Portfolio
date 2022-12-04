@@ -10,13 +10,30 @@ import java.util.Scanner;
 
 public class FileParser {
 
+  /**
+   * Check if the string is blank.
+   * @param str String
+   * @return boolean
+   */
+  public static boolean isBlank(String str) {
+    if (str == null || str.length() == 0) {
+      return true;
+    }
+    for (int i = 0; i < str.length(); i++) {
+      if (!Character.isWhitespace(str.charAt(i))) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   public static void parseFile(InputStream file, IShapeModel model)
       throws IllegalArgumentException {
     Scanner scanner = new Scanner(file);
 
     while (scanner.hasNext()) {
       String text = scanner.nextLine();
-      if (text.startsWith("#") || text.isBlank()) {
+      if (text.startsWith("#") || isBlank(text)) {
         continue;
       } else {
         List<String> parameters = Arrays.asList(text.trim().split("\\s+"));

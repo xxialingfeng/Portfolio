@@ -6,7 +6,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -84,7 +86,9 @@ public class ButtonPanel extends JPanel implements ActionListener {
           Snapshot chosenSnapshot = features.getSnapshotByID(selectedVal.toString());
           graphicalView.display(chosenSnapshot);
         }
-        features.setCurrentSnapshotIndex(Arrays.stream(id).toList().indexOf(selectedVal));
+        List<String> idToList = new ArrayList<>();
+        Collections.addAll(idToList, id);
+        features.setCurrentSnapshotIndex(idToList.indexOf(selectedVal));
       }
     }
 
