@@ -59,7 +59,7 @@ public class FileParser {
             }
           } else if (parameters.get(2).equalsIgnoreCase("oval")) {
             try {
-              model.addShape(new Oval(name, "rectangle", x, y, sizeOne, sizeTwo, r, g, b));
+              model.addShape(new Oval(name, "oval", x, y, sizeOne, sizeTwo, r, g, b));
             } catch (Exception e) {
               throw new IllegalArgumentException();
             }
@@ -95,7 +95,7 @@ public class FileParser {
             throw new IllegalArgumentException("wrong command");
           }
           try {
-            model.resizeShape(parameters.get(1), Integer.parseInt(parameters.get(2)), Integer.parseInt(parameters.get(3)));
+            model.moveShape(parameters.get(1), Integer.parseInt(parameters.get(2)), Integer.parseInt(parameters.get(3)));
           } catch (Exception e) {
             throw new IllegalArgumentException("bad command");
           }

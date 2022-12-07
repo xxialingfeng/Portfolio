@@ -33,7 +33,7 @@ public class WebView extends JFrame implements IView {
   public WebView (Features features, String OutputFile) throws IOException {
     this.features = features;
     List<String> snapshotIDs = features.getAllAvailableSnapShotIDs();
-    Path filePath = Paths.get(".." + File.separator + "resources" + File.separator + OutputFile);
+    Path filePath = Paths.get(OutputFile);
     this.textFile = new File(filePath.toString());
     this.html = new FileWriter(textFile);
 
@@ -60,14 +60,14 @@ public class WebView extends JFrame implements IView {
           for (IShape shape : shapeList) {
             if (shape instanceof Rectangle) {
               html.write("<rect x=\"" + shape.getX() + "\" y=\"" + shape.getY()
-                  + "\" width=\"" + shape.getSizeTwo() + "\" height=\"" + shape.getSizeTwo()
+                  + "\" width=\"" + shape.getSizeOne() + "\" height=\"" + shape.getSizeTwo()
                   + "\"\n" + "\tfill=\"rgb(" + shape.getRed() + "," + shape.getGreen() + ","
                   + shape.getBlue() + "\" />");
             }
 
             if (shape instanceof Oval) {
-              int xRadius = shape.getSizeOne();
-              int yRadius = shape.getSizeTwo();
+              int xRadius = shape.getSizeOne() / 2;
+              int yRadius = shape.getSizeTwo() / 2;
 
               html.write("<ellipse cx=\"" + (shape.getX() + xRadius)
                   + "\" cy=\"" + (shape.getY() + yRadius)

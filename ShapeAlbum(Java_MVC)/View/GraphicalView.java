@@ -31,7 +31,7 @@ public class GraphicalView extends JFrame implements IView {
     //exit
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     //size
-    this.setSize(1000, 1000);
+    this.setSize(1000, 800);
     //set background color
     this.getContentPane().setBackground(new Color(185, 213, 250));
     //the frame should be at the center
@@ -45,7 +45,7 @@ public class GraphicalView extends JFrame implements IView {
     this.infoPanel = new InfoPanel();
     add(infoPanel);
     // Create a panel on which to put shapes
-    this.shapesPanel = new ShapeZonePanel(800, 800);
+    this.shapesPanel = new ShapeZonePanel(800, 600);
     add(shapesPanel);
     // Create a panel for buttons
     this.buttonPanel = new ButtonPanel(this.features, this);
@@ -90,7 +90,7 @@ public class GraphicalView extends JFrame implements IView {
     this.infoPanel = new InfoPanel();
     add(infoPanel);
     // Create a panel on which to put shapes
-    this.shapesPanel = new ShapeZonePanel(800, 800);
+    this.shapesPanel = new ShapeZonePanel(800, 600);
     add(shapesPanel);
     // Create a panel for buttons
     this.buttonPanel = new ButtonPanel(this.features, this);

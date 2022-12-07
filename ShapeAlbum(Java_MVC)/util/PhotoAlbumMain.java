@@ -31,7 +31,7 @@ public class PhotoAlbumMain {
     ShapeAlbumController controller = new ShapeAlbumController(model, parseArgs);
 
     //create view
-    if (parseArgs.get("ViewType").equalsIgnoreCase("graphical")) {
+    if (parseArgs.get("viewType").equalsIgnoreCase("graphical")) {
       if (parseArgs.containsKey("maxViewSize")) {
         List<String> maxSize = List.of(parseArgs.get("maxViewSize").split("\\s+"));
         try {
@@ -42,7 +42,7 @@ public class PhotoAlbumMain {
       } else {
         IView view = new GraphicalView(controller);
       }
-    } else if (parseArgs.get("ViewType").equalsIgnoreCase("web")) {
+    } else if (parseArgs.get("viewType").equalsIgnoreCase("web")) {
       IView view = new WebView(controller, parseArgs.get("out"));
     } else {
       throw new IllegalArgumentException("unknown");

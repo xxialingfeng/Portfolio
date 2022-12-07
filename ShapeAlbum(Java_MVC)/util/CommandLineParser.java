@@ -23,22 +23,22 @@ public class CommandLineParser {
       if (args[i].startsWith("-")) {
         // Check for in flag, and check that the next element is not a flag
         if (args[i].replace("-", "").equalsIgnoreCase("in")
-            && !args[i+1].startsWith("-")) {
-          parsedArgs.put("in", args[i+1]);
+            && !args[i + 1].startsWith("-")) {
+          parsedArgs.put("in", args[i + 1]);
           i++;
           continue;
         }
         // Get out
         if (args[i].replace("-", "").equalsIgnoreCase("out")
-            && !args[i+1].startsWith("-")) {
-          parsedArgs.put("out", args[i+1]);
+            && !args[i + 1].startsWith("-")) {
+          parsedArgs.put("out", args[i + 1]);
           i++;
           continue;
         }
         // Get view
         if ((args[i].replace("-", "").equalsIgnoreCase("view") ||
             args[i].replace("-", "").equalsIgnoreCase("v"))
-            && !args[i+1].startsWith("-")) {
+            && !args[i + 1].startsWith("-")) {
           // Check for valid view type
           if (args[i + 1].equalsIgnoreCase("web")
               || args[i + 1].equalsIgnoreCase("graphical")) {
@@ -51,7 +51,7 @@ public class CommandLineParser {
       // Try getting max dimensions
       try {
         int maxX  = Integer.parseInt(args[i]);
-        int maxY = Integer.parseInt(args[i+1]);
+        int maxY = Integer.parseInt(args[i + 1]);
         parsedArgs.put("maxViewSize", maxX + " " + maxY);
         i++;
       }
@@ -75,7 +75,7 @@ public class CommandLineParser {
     }
     // Make sure we have an input file
     if (!parsedArgs.containsKey("in")) {
-      System.out.printf("Must specify a file in");
+      System.out.println("Must specify a file in");
       System.exit(1);
     }
     return parsedArgs;
