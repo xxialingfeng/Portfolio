@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Group_Project_Team12</string>
+    <string name="login">Login</string>
+    <string name="copyright_2023">copyright@2023</string>
+    <string name="welcome_to_mixic">Welcome to Mixic!</string>
+    <string name="enter_your_username">Enter Your Username</string>
+    <string name="top_name">Mixic</string>
+    <string name="buttom_name1">Music</string>
+    <string name="buttom_name2">Friends</string>
+    <string name="buttom_name3">Record</string>
+    <string name="buttom_name4">Me</string>
+    <string name="tab_01_name">This is music page</string>
+    <string name="tab_02_name">This is friends page</string>
+    <string name="tab_03_name">This is record page</string>
+    <string name="tab_04_name">This is me page</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="play_audio" />
+    <string name="playback">playback</string>
+    <string name="back_to_recording">Back to recording</string>
+</resources>
