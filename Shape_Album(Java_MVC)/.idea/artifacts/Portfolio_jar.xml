@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Portfolio:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Portfolio_jar</output-path>
+    <root id="archive" name="photoAlbum.jar">
+      <element id="module-output" name="Portfolio" />
+    </root>
+  </artifact>
+</component>

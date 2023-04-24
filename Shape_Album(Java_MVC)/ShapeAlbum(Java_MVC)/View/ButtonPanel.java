@@ -27,7 +27,7 @@ public class ButtonPanel extends JPanel implements ActionListener {
    * Initialize a button panel.
    * @param featuresToAdd the features
    * @param graphicalView the graphical view
-   * @throws IllegalArgumentException
+   * @throws IllegalArgumentException " "
    */
   public ButtonPanel(Features featuresToAdd, GraphicalView graphicalView)
       throws IllegalArgumentException {
@@ -46,28 +46,25 @@ public class ButtonPanel extends JPanel implements ActionListener {
     this.setPreferredSize(new Dimension(1375, 98));
 
     //set prev button
-    prev = new JButton();
+    prev = new JButton("Previous Snapshot");
     prev.addActionListener(this);
-    prev.setText("Previous Snapshot");
-    add(prev);
+    this.add(prev);
 
     //set next button
-    next = new JButton();
-    next.addActionListener(this);
-    next.setText("Next Snapshot");
-    add(next);
+    next = new JButton("Next Snapshot");
+    next.addActionListener(this); //The addActionListener method
+    // takes the current class object as a parameter
+    this.add(next);
 
     //set select button
-    select = new JButton();
+    select = new JButton("Select Snapshot");
     select.addActionListener(this);
-    select.setText("Select Snapshot");
-    add(select);
+    this.add(select);
 
     //exit button
-    exit = new JButton();
+    exit = new JButton("Exit");
     exit.addActionListener(this);
-    exit.setText("Exit");
-    add(exit);
+    this.add(exit);
 
     this.setVisible(true);
   }
@@ -91,6 +88,7 @@ public class ButtonPanel extends JPanel implements ActionListener {
         features.setCurrentSnapshotIndex(idToList.indexOf(selectedVal));
       }
     }
+
 
     if (e.getSource() == next) {
       int currIndex = features.getCurrentSnapshotIndex();
