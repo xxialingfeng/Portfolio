@@ -1,0 +1,37 @@
+The purpose of the Photo Album is to display snapshots.
+The photo album is built according to the Model-Controller-View architecture paradigm,
+and there are two types of views: Graphical and Web.
+
+# ENTRY POINT
+Our entry point to the program is PhotoAlbumMain in the util package.
+The command arguments are parsed, converting them from a string array to a hash map.
+A model is created, and a controller is created which gets the model and the parsed arguments.
+The controller uses the parsed arguments to find the mandatory input file, parse it,
+and make changes to the model according to the commands in the input file.
+Thus, by the time we get to creating a view, the model has undergone all the changes it will undergo.
+
+# GRAPHICAL VIEW
+Based on the parsed arguments, we either make a graphical view or a web view.
+If there are max dimensions in the parsed arguments,
+we make a GraphicalView using a constructor that takes in Features and max dimensions.
+Otherwise we make a GraphicalView with a constructor that takes in Features.
+The Features is the only way the view interacts with other packages.
+The graphical view displays the first snapshot in the model upon initialization,
+or a blank window and a warning message if there are no snapshots in the model.
+The graphical view has three panels: information (for snapshot ID and description),
+shape zone (for displaying shapes), and button (for buttons).
+The buttons panel has access to the view's Features so that when buttons are pressed appropriate actions can be carried out.
+
+# WEB VIEW
+If the parsed arguments specify that a web view should be made, a new web view is constructed with Features,
+and a string which is the name of the html file that should be created.
+The web view essentially creates an html file based on what is in the model.
+For each snapshot, each shape is added to the html file using SVG tags.
+The resultant html file will be created in the resources package.
+
+#COMMIT HISTORY
+There are several commits made during the project. First commit is made when the model is implemented.
+We specified the classes and packages for this project. And designed the pattern for the two shapes.
+We made some changes thereafter, started implementing snapshots, albums, and the web view and graphical view
+for the two shapes and albums.
+Finally we designed a controller for the album.
